@@ -15,7 +15,7 @@ Install dependencies:
 and create link to `trimmer` file:
 
     cd ~/bin
-    ln -s /path/to/the/repo/trimmer-python/trimmer trimmer
+    ln -s /path/to/the/repo/trimmer-python/main.py trimmer
 
 I assume that `~/bin` directory is included in your `PATH`.
 
