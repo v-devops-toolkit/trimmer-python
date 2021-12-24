@@ -1,0 +1,10 @@
+regexps:
+  - '.*/\.git$'
+  - '.*/\.git/.*'
+  - '.*/\.idea$'
+  - '.*/\.idea/.*'
+  - '.*\.DS_Store$'
+  - '.*\.png$'
+  - '.*__pycache__$'
+  - '.*.pytest_cache$'
+  - '.*.pytest_cache/.*'
