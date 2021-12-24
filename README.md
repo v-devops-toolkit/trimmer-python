@@ -2,11 +2,22 @@
 
 ## Install
 
+## Install
+
+Clone the repo:
+
+    git clone git@github.com:gajdaw/trimmer-python.git
+
 Install dependencies:
 
     pip3 install -r requirements.txt
 
-and copy `trimmer` script to some location which is included in your path.
+and create link to `trimmer` file:
+
+    cd ~/bin
+    ln -s /path/to/the/repo/trimmer-python/trimmer trimmer
+
+I assume that `~/bin` directory is included in your `PATH`.
 
 ## Run
 
