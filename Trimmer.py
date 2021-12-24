@@ -3,6 +3,7 @@
 import os
 import re
 import yaml
+import DataTransformer
 
 class Trimmer(object):
     """
@@ -10,6 +11,7 @@ class Trimmer(object):
     """
 
     def __init__(self):
+        self._data_transformer = DataTransformer.DataTransformer()
         file_path = os.path.dirname(os.path.realpath(__file__))
         filename = os.path.join(file_path, "trimmer.yaml")
         with open(filename, "r") as stream:
@@ -46,10 +48,7 @@ class Trimmer(object):
             self.data = myfile.readlines()
 
     def _transform_data(self):
-        converted = []
-        for line in self.data:
-            converted.append(line.rstrip(" \n\r"))
-        self.data = converted
+        self.data = self._data_transformer.transform(self.data)
 
     def _save_file(self, filename):
         with open(filename, "w") as text_file:
