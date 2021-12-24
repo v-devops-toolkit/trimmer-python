@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 
-import fire
-import subprocess
-import pprint
 import os
-import sys
 import re
 import yaml
 
@@ -58,9 +54,3 @@ class Trimmer(object):
     def _save_file(self, filename):
         with open(filename, "w") as text_file:
             text_file.write("\n".join(self.data) + "\n")
-
-def main():
-    fire.Fire(Trimmer)
-
-if __name__ == '__main__':
-    main()
