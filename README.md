@@ -2,8 +2,6 @@
 
 ## Install
 
-## Install
-
 Clone the repo:
 
     git clone git@github.com:gajdaw/trimmer-python.git
