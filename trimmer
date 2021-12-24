@@ -6,11 +6,17 @@ import pprint
 import os
 import sys
 import re
+import yaml
 
 class Trimmer(object):
     """
     Trimmer - trim lines in files, replace \r\n with \n and add final \n in file
     """
+
+    def __init__(self, dir: str = '.'):
+        filename = os.path.join(dir, "trimmer.yaml")
+        with open(filename, "r") as stream:
+            self._config = yaml.safe_load(stream)
 
     def right(self, dir: str = '.'):
         print(f"DIRECTORY: {dir}")
@@ -23,28 +29,20 @@ class Trimmer(object):
                         self._process(full_filename)
 
     def _not_masked(self, dir: str):
-        regexps = [
-            ".*/\.git$",
-            ".*/\.git/.*",
-            ".*/\.idea$",
-            ".*/\.idea/.*",
-            ".*\.DS_Store$",
-            ".*\.png$",
-            ".*__pycache__$",
-            ".*.pytest_cache$",
-            ".*.pytest_cache/.*",
-        ]
-
-        for regexp in regexps:
+        for regexp in self._config['regexps']:
             if (re.match(regexp, dir)):
                 return False
 
         return True
 
     def _process(self, filename):
-        self._load_file(filename)
-        self._transform_data()
-        self._save_file(filename)
+        try:
+            self._load_file(filename)
+            self._transform_data()
+            self._save_file(filename)
+        except UnicodeDecodeError:
+            print(f"        ===> UnicodeDecodeError: {filename}")
+            pass
 
     def _load_file(self, filename: str):
         with open (filename, "r") as myfile:
