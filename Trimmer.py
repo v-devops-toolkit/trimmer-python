@@ -20,19 +20,17 @@ class Trimmer(object):
     def right(self, dir: str = '.'):
         print(f"DIRECTORY: {dir}")
         for root, subdirs, files in os.walk(dir):
-            if (self._not_masked(root)):
-                for filename in files:
-                    if (self._not_masked(filename)):
-                        full_filename = f"{root}/{filename}"
-                        print(f"    {full_filename}")
-                        self._process(full_filename)
+            for filename in files:
+                full_filename = f"{root}/{filename}"
+                if (not self._is_excluded(full_filename)):
+                    print(f"    {full_filename}")
+                    self._process(full_filename)
 
-    def _not_masked(self, dir: str):
-        for regexp in self._config['regexps']:
-            if (re.match(regexp, dir)):
-                return False
-
-        return True
+    def _is_excluded(self, dir: str):
+        for regexp in self._config['exclude']:
+            if (re.search(regexp, dir)):
+                return True
+        return False
 
     def _process(self, filename):
         try:
