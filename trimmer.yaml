@@ -8,3 +8,5 @@ regexps:
   - '.*__pycache__$'
   - '.*.pytest_cache$'
   - '.*.pytest_cache/.*'
+  - '.*.terragrunt-cache$'
+  - '.*.terragrunt-cache/.*'
