@@ -4,6 +4,7 @@ import os
 import re
 import yaml
 import DataTransformer
+import pprint
 
 class Trimmer(object):
     """
@@ -16,6 +17,12 @@ class Trimmer(object):
         filename = os.path.join(file_path, "trimmer.yaml")
         with open(filename, "r") as stream:
             self._config = yaml.safe_load(stream)
+
+    def debug(self):
+        pprint.pprint(self._config)
+
+    def version(self):
+        print('trimmer ver. 0.3.0')
 
     def right(self, dir: str = '.'):
         print(f"DIRECTORY: {dir}")
