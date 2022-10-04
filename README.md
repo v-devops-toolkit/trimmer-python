@@ -19,9 +19,9 @@ I assume that `~/bin` directory is included in your `PATH`.
 
 ## Run
 
-    python3 trimmer
-    python3 trimmer right
-    python3 trimmer right --dir=.
+    trimmer
+    trimmer right
+    trimmer right --dir=.
 
 ## Unit tests
 
