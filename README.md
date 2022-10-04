@@ -25,4 +25,10 @@ I assume that `~/bin` directory is included in your `PATH`.
 
 ## Unit tests
 
+Run:
+
     pytest test*.py
+
+or
+
+    python3 -m pytest test*.py
