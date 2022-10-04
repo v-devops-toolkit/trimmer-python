@@ -22,3 +22,7 @@ I assume that `~/bin` directory is included in your `PATH`.
     python3 trimmer
     python3 trimmer right
     python3 trimmer right --dir=.
+
+## Unit tests
+
+    pytest test*.py
