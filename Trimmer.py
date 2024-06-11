@@ -22,15 +22,13 @@ class Trimmer(object):
         pprint.pprint(self._config)
 
     def version(self):
-        print('trimmer ver. 0.3.0')
+        print('trimmer ver. 0.4.0')
 
     def right(self, dir: str = '.'):
-        print(f"DIRECTORY: {dir}")
         for root, subdirs, files in os.walk(dir):
             for filename in files:
                 full_filename = f"{root}/{filename}"
                 if (not self._is_excluded(full_filename)):
-                    print(f"    {full_filename}")
                     self._process(full_filename)
 
     def _is_excluded(self, dir: str):
@@ -41,20 +39,31 @@ class Trimmer(object):
 
     def _process(self, filename):
         try:
+            input_contents = self._load_str_from_file(filename)
             self._load_file(filename)
             self._transform_data()
-            self._save_file(filename)
+            output_contents = self._prepare_output(self.data_transformed)
+            if (input_contents != output_contents):
+                self._save_file(filename)
+                print(filename)
         except UnicodeDecodeError:
-            print(f"        ===> UnicodeDecodeError: {filename}")
+            # print(f"        ===> UnicodeDecodeError: {filename}")
             pass
 
     def _load_file(self, filename: str):
         with open (filename, "r") as myfile:
             self.data = myfile.readlines()
 
+    def _load_str_from_file(self, filename: str):
+        with open(filename, "r") as stream:
+            return stream.read()
+
     def _transform_data(self):
-        self.data = self._data_transformer.transform(self.data)
+        self.data_transformed = self._data_transformer.transform(self.data)
 
     def _save_file(self, filename):
         with open(filename, "w") as text_file:
-            text_file.write("\n".join(self.data) + "\n")
+            text_file.write("\n".join(self.data_transformed) + "\n")
+
+    def _prepare_output(self, data):
+        return "\n".join(data) + "\n"
