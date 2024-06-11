@@ -7,4 +7,4 @@ exclude:
   - '\.terragrunt-cache/'
   - '\.terraform/'
   - '\.cache/'
-  - '\.node_modules/'
+  - 'node_modules/'
