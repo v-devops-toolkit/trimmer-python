@@ -8,3 +8,4 @@ exclude:
   - '\.terraform/'
   - '\.cache/'
   - 'node_modules/'
+  - '\.external_modules/'
