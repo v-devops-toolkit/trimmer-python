@@ -66,4 +66,8 @@ class Trimmer(object):
             text_file.write("\n".join(self.data_transformed) + "\n")
 
     def _prepare_output(self, data):
-        return "\n".join(data) + "\n"
+        # do not change empty file
+        if not data:
+            return ""
+        else:
+            return "\n".join(data) + "\n"
