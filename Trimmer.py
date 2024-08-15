@@ -22,7 +22,7 @@ class Trimmer(object):
         pprint.pprint(self._config)
 
     def version(self):
-        print('trimmer ver. 0.4.0')
+        print('trimmer ver. 0.4.1')
 
     def right(self, dir: str = '.'):
         for root, subdirs, files in os.walk(dir):
@@ -66,4 +66,8 @@ class Trimmer(object):
             text_file.write("\n".join(self.data_transformed) + "\n")
 
     def _prepare_output(self, data):
-        return "\n".join(data) + "\n"
+        # do not change empty file
+        if not data:
+            return ""
+        else:
+            return "\n".join(data) + "\n"
