@@ -63,11 +63,11 @@ class Trimmer(object):
 
     def _save_file(self, filename):
         with open(filename, "w") as text_file:
-            text_file.write("\n".join(self.data_transformed) + "\n")
+            text_file.write("\n".join(self.data_transformed).strip(" \n\r") + "\n")
 
     def _prepare_output(self, data):
         # do not change empty file
         if not data:
             return ""
         else:
-            return "\n".join(data) + "\n"
+            return "\n".join(data).strip(" \n\r") + "\n"
