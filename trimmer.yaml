@@ -9,3 +9,5 @@ exclude:
   - '\.cache/'
   - 'node_modules/'
   - '\.external_modules/'
+  - '\.husky/'
+  - 'coverage/lcov-report/'
