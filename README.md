@@ -8,7 +8,7 @@ Clone the repo:
 
 Install dependencies:
 
-    pip3 install -r requirements.txt
+    pip3 install -r requirements.txt --break-system-packages
 
 and create link to `trimmer` file:
 
