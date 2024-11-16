@@ -17,16 +17,8 @@ pyenv install 3.12
 pyenv virtualenvs
 pyenv virtualenv 3.12 trimmer-python
 
-
-# configure bash
-cd ~
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
-echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
-echo 'eval "$(pyenv init -)"' >> ~/.profile
-
 pyenv activate trimmer-python
 pyenv virtualenvs
-
 
 pip install --upgrade pip
 pip install pip-tools
@@ -42,14 +34,20 @@ Install dependencies:
 pip3 install -r requirements.txt
 ```
 
-and create link to `trimmer` file:
+and create bash file named `trimmer` with the contents:
 
 ```
-cd ~/bin
-ln -s /path/to/the/repo/trimmer-python/main.py trimmer
+#!/bin/bash
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+pyenv activate trimmer-python
+python3 /PATH/TO/YOUR/REPO/trimmer-python/main.py $*
 ```
 
-I assume that `~/bin` directory is included in your `PATH`.
+Copy bash script `trimmer` to the directory which is included in your paths.
 
 ## Run
 
