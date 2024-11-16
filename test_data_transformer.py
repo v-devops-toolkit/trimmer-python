@@ -4,13 +4,13 @@ from DataTransformer import *
 
 test_items = [
     [[], []],
-    [['one'], ['one']],
-    [['one '], ['one']],
-    [['one\n'], ['one']],
-    [['one\r'], ['one']],
-    [['one \r \n \r \n'], ['one']],
-    [['one \r \n \r \n'], ['one']],
-    [['a ', 'b \r', 'c \n'], ['a', 'b', 'c']],
+    [["one"], ["one"]],
+    [["one "], ["one"]],
+    [["one\n"], ["one"]],
+    [["one\r"], ["one"]],
+    [["one \r \n \r \n"], ["one"]],
+    [["one \r \n \r \n"], ["one"]],
+    [["a ", "b \r", "c \n"], ["a", "b", "c"]],
 ]
 
 
