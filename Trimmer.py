@@ -6,6 +6,7 @@ import yaml
 import DataTransformer
 import pprint
 
+
 class Trimmer(object):
     """
     Trimmer - trim lines in files, replace \r\n with \n and add final \n in file
@@ -22,18 +23,18 @@ class Trimmer(object):
         pprint.pprint(self._config)
 
     def version(self):
-        print('trimmer ver. 0.4.3')
+        print("trimmer ver. 0.4.3")
 
-    def right(self, dir: str = '.'):
+    def right(self, dir: str = "."):
         for root, subdirs, files in os.walk(dir):
             for filename in files:
                 full_filename = f"{root}/{filename}"
-                if (not self._is_excluded(full_filename)):
+                if not self._is_excluded(full_filename):
                     self._process(full_filename)
 
     def _is_excluded(self, dir: str):
-        for regexp in self._config['exclude']:
-            if (re.search(regexp, dir)):
+        for regexp in self._config["exclude"]:
+            if re.search(regexp, dir):
                 return True
         return False
 
@@ -43,7 +44,7 @@ class Trimmer(object):
             self._load_file(filename)
             self._transform_data()
             output_contents = self._prepare_output(self.data_transformed)
-            if (input_contents != output_contents):
+            if input_contents != output_contents:
                 self._save_file(filename)
                 print(filename)
         except UnicodeDecodeError:
@@ -51,7 +52,7 @@ class Trimmer(object):
             pass
 
     def _load_file(self, filename: str):
-        with open (filename, "r") as myfile:
+        with open(filename, "r") as myfile:
             self.data = myfile.readlines()
 
     def _load_str_from_file(self, filename: str):
