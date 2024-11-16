@@ -10,4 +10,5 @@ exclude:
   - 'node_modules/'
   - '\.external_modules/'
   - '\.husky/'
+  - '\.ruff_cache/'
   - 'coverage/lcov-report/'
