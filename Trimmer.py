@@ -9,7 +9,7 @@ import pprint
 
 class Trimmer(object):
     """
-    Trimmer - trim lines in files, replace \r\n with \n and add final \n in file
+    Trimmer - trim lines, replace \\r\\n with \\n and add final \\n
     """
 
     def __init__(self):
