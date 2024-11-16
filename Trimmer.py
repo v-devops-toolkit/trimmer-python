@@ -23,7 +23,7 @@ class Trimmer(object):
         pprint.pprint(self._config)
 
     def version(self):
-        print("trimmer ver. 0.4.3")
+        print("trimmer ver. 0.5.0")
 
     def right(self, dir: str = "."):
         for root, subdirs, files in os.walk(dir):
