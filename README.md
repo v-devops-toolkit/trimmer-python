@@ -23,18 +23,15 @@ pyenv virtualenvs
 pip install --upgrade pip
 pip install pip-tools
 pip-sync
-pip-compile --upgrade && pip-sync
-pre-commit install
-pre-commit run --all
 ```
 
 Install dependencies:
 
 ```
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 
-and create bash file named `trimmer` with the contents:
+and create bash file named `trimmer.sh` with the contents:
 
 ```
 #!/bin/bash
@@ -47,14 +44,14 @@ pyenv activate trimmer-python
 python3 /PATH/TO/YOUR/REPO/trimmer-python/main.py $*
 ```
 
-Copy bash script `trimmer` to the directory which is included in your paths.
+Copy bash script `trimmer.sh` to the directory which is included in your paths.
 
 ## Run
 
 ```
-trimmer
-trimmer right
-trimmer right --dir=.
+trimmer.sh
+trimmer.sh right
+trimmer.sh right --dir=.
 ```
 
 ## Unit tests
