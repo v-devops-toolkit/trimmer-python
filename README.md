@@ -44,14 +44,14 @@ pyenv activate trimmer-python
 python3 /PATH/TO/YOUR/REPO/trimmer-python/main.py $*
 ```
 
-Copy bash script `trimmer` to the directory which is included in your paths.
+Copy bash script `trimmer.sh` to the directory which is included in your paths.
 
 ## Run
 
 ```
-trimmer
-trimmer right
-trimmer right --dir=.
+trimmer.sh
+trimmer.sh right
+trimmer.sh right --dir=.
 ```
 
 ## Unit tests
