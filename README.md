@@ -23,18 +23,15 @@ pyenv virtualenvs
 pip install --upgrade pip
 pip install pip-tools
 pip-sync
-pip-compile --upgrade && pip-sync
-pre-commit install
-pre-commit run --all
 ```
 
 Install dependencies:
 
 ```
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 
-and create bash file named `trimmer` with the contents:
+and create bash file named `trimmer.sh` with the contents:
 
 ```
 #!/bin/bash
